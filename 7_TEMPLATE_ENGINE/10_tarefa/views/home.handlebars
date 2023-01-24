@@ -1,0 +1,10 @@
+<h1>De uma olhada no nossos carros</h1>
+{{#each carros}}
+    <div class="container-single">
+        <h3>{{this.marca}}</h3>
+        <p>{{this.ano}}</p>
+        <p>{{this.km}}km</p>
+        <h4>R${{this.preco}}</h4>
+        <a href="/single/{{this.id}}">Ver Carro</a>
+    </div>
+{{/each}}

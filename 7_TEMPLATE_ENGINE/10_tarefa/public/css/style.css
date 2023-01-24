@@ -1,0 +1,49 @@
+body {
+    background-color: rgb(198, 198, 219);
+}
+
+header {
+    background-color: rgb(7, 7, 196);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.container {
+    background-color: #e7e0e0;
+    padding: 10px;
+    max-width: 600px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.container h1 {
+    text-align: center;
+}
+
+.container-single {
+    text-align: center;
+    background-color: #fbf3f3;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.container-single a {
+    text-decoration: none;
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    display: block;
+    max-width: 100px;
+}
+
+footer {
+    background-color: rgb(7, 7, 196);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
