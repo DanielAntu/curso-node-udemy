@@ -26,3 +26,6 @@
 8_NODE_E_MYSQL/4_resgatando_individuais/node_modules
 8_NODE_E_MYSQL/5_edicao_primeira_etapa/node_modules
 8_NODE_E_MYSQL/6_atualizacao_de_dados/node_modules
+8_NODE_E_MYSQL/7_excluindo_dado/node_modules
+8_NODE_E_MYSQL/8_connection_pool/node_modules
+8_NODE_E_MYSQL/9_preparar_query/node_modules
