@@ -30,3 +30,7 @@
 8_NODE_E_MYSQL/8_connection_pool/node_modules
 8_NODE_E_MYSQL/9_preparar_query/node_modules
 9_SEQUELIZE/1_instalacao/node_modules
+9_SEQUELIZE/2_criando_model/node_modules
+9_SEQUELIZE/3_inserindo_dados/node_modules
+9_SEQUELIZE/4_lendo_dados/node_modules
+9_SEQUELIZE/5_resgatando_dado/node_modules
