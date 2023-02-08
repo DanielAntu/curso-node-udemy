@@ -14,6 +14,9 @@ const User = require('./models/User')
 
 // import Routes
 const toughtsRoutes = require('./routers/toughtsRoutes')
+const authRoutes = require('./routers/authRoutes')
+
+// controllers
 const ToughtController = require('./controllers/ToughtsController')
 
 // template engine
@@ -65,6 +68,7 @@ app.use((req,res,next) => {
 })
 
 app.use('/toughts', toughtsRoutes)
+app.use('/', authRoutes)
 app.get('/', ToughtController.showToughts)
 
 conn
