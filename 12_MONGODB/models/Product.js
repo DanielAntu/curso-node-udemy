@@ -1,5 +1,7 @@
 const conn = require('../db/conn')
 
+const {ObjectId} = require('mongodb')
+
 class Product {
     constructor(name, image, price, description) {
         this.name = name
@@ -23,6 +25,21 @@ class Product {
         const products = conn.db().collection('products').find().toArray()
 
         return products
+    }
+
+    static async getProductsById(id) {
+        const product = await conn.db().collection('products').findOne({_id: new ObjectId(id)})
+
+        return product
+    }
+
+    static async removeProductById(id) {
+        const objectId = new ObjectId(id).toString()
+        console.log(objectId)
+
+        await conn.db().collection('products').deleteOne({_id: objectId})
+
+        return
     }
 }
 

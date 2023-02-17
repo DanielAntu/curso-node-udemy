@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb')
 const Product = require('../models/Product')
 
 module.exports = class ProductController {
@@ -20,6 +21,22 @@ module.exports = class ProductController {
         const product = new Product(name, image, price, description)
 
         product.save()
+
+        res.redirect('/products')
+    }
+
+    static async getProduct(req,res) {
+        const id = req.params.id
+    
+        const product = await Product.getProductsById(id)
+
+        res.render('products/product', {product})
+    }
+
+    static async removeProduct(req,res) {
+        const id = req.params.id
+
+        await Product.removeProductById(id)
 
         res.redirect('/products')
     }
