@@ -26,7 +26,7 @@ module.exports = class ProductController {
     }
 
     static async getProduct(req,res) {
-        const id = req.params.id
+        const id = (req.params.id).trim()
     
         const product = await Product.getProductsById(id)
 
@@ -34,9 +34,31 @@ module.exports = class ProductController {
     }
 
     static async removeProduct(req,res) {
-        const id = req.params.id
+        const id = (req.params.id).trim()
 
         await Product.removeProductById(id)
+
+        res.redirect('/products')
+    }
+
+    static async editProduct(req,res) {
+        const id = (req.params.id).trim()
+
+        const product = await Product.getProductsById(id)
+
+        res.render('products/edit', {product})
+    }
+
+    static async editProductPost(req,res) {
+        const id = req.body.id
+        const name = req.body.name
+        const image = req.body.image
+        const price = req.body.price
+        const description = req.body.description
+
+        const product = new Product(name, image, price, description)
+
+        await product.updateProduct(id)
 
         res.redirect('/products')
     }

@@ -28,16 +28,19 @@ class Product {
     }
 
     static async getProductsById(id) {
-        const product = await conn.db().collection('products').findOne({_id: new ObjectId(id)})
+        const product = await conn.db().collection('products').findOne({ _id: new ObjectId(id) })
 
         return product
     }
 
     static async removeProductById(id) {
-        const objectId = new ObjectId(id).toString()
-        console.log(objectId)
+        const removeProduct = await conn.db().collection('products').deleteOne({ _id: new ObjectId(id) })
 
-        await conn.db().collection('products').deleteOne({_id: objectId})
+        return removeProduct
+    }
+
+    async updateProduct(id) {
+        await conn.db().collection('products').updateOne({_id: new ObjectId(id)}, {$set: this})
 
         return
     }
