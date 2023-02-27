@@ -1,11 +1,23 @@
 import api from "../utils/api";
 
 import {useState, useEffect} from 'react'
-import {useHistory} from 'react-router-dom'
+// import { useHistory } from "react-router-dom";
 import useFlashMessage from './useFlashMessage'
 
 export default function useAuth() {
+    const [authenticated, setAuthenticated] = useState(false)
+    // const history = useHistory()
     const {setFlashMessage} = useFlashMessage()
+
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+
+        if (token) {
+            api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`
+            setAuthenticated(true)
+        }
+    }, [])
+
     async function register(user) {
         let msgText = 'Cadastro realizado com sucesso!'
         let msgType = 'sucess'
@@ -14,7 +26,8 @@ export default function useAuth() {
                 return response.data
             })
 
-            console.log(data)
+            await authUser(data)
+
         } catch (error) {
             msgText = error.response.data.message
             msgType = 'error'
@@ -23,5 +36,42 @@ export default function useAuth() {
         setFlashMessage(msgText, msgType)
     }
 
-    return {register}
+    async function authUser(data) {
+        setAuthenticated(true)
+        localStorage.setItem('token', JSON.stringify(data))
+        
+        //history.push('/')
+    }
+
+    async function login(user) {
+        let msgText = 'Login realizado com sucesso!'
+        let msgType = 'sucess'
+
+        try {
+            const data = await api.post('/users/login', user).then((response) => {
+                return response.data
+            })
+
+            await authUser(data)
+        } catch (error) {
+            msgText = error.response.data.message
+            msgType = 'error'
+        }
+
+        setFlashMessage(msgText, msgType)
+    }
+
+    function logout() {
+        const msgText = 'Logout realizado com sucesso!'
+        const msgType = 'sucess'
+
+        setAuthenticated(false)
+        localStorage.removeItem('token')
+        api.defaults.headers.Authorization = undefined
+
+        //history.push('/')
+        setFlashMessage(msgText, msgType)
+    }
+
+    return {authenticated, register, logout, login}
 }
