@@ -14,6 +14,11 @@ module.exports = class PetController {
         const available = true
 
         // validations
+        if(images.length === 0) {
+            res.status(422).json({message: 'A imagem é obrigatório!'})
+            return
+        }
+        
         if(!name) {
             res.status(422).json({message: 'O nome é obrigatório!'})
             return
@@ -31,11 +36,6 @@ module.exports = class PetController {
 
         if(!color) {
             res.status(422).json({message: 'A cor é obrigatório!'})
-            return
-        }
-
-        if(images.length === 0) {
-            res.status(422).json({message: 'A imagem é obrigatório!'})
             return
         }
 

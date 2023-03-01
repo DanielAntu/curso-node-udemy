@@ -67,7 +67,7 @@ function Profile() {
                     <RoundedImage src={preview ? URL.createObjectURL(preview) : `${process.env.REACT_APP_API}/images/users/${user.image}`} alt={user.name} />
                 )}
             </div>
-            <form onSubmit={handleSubmit} className={formStyles.form_container}>
+            <form onSubmit={handleSubmit} className={formStyles.form_container} formenctype="multipart/form-data">
                 <Input
                 text='Imagem'
                 type='file'
