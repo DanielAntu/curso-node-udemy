@@ -13,6 +13,8 @@ import Message from './components/layouts/Message';
 import MyPets from './components/pages/pets/MyPets';
 import AddPets from './components/pages/pets/AddPets';
 import EditPet from './components/pages/pets/EditPet';
+import PetDetails from './components/pages/pets/PetDetails';
+import MyAdoptions from './components/pages/pets/MyAdoptions';
 
 function App() {
   return (
@@ -39,6 +41,12 @@ function App() {
             </Route>
             <Route path='/pet/edit/:id'>
               <EditPet/>
+            </Route>
+            <Route path='/pet/myadoptions'>
+              <MyAdoptions/>
+            </Route>
+            <Route path='/pet/:id'>
+              <PetDetails/>
             </Route>
             <Route path='/'>
               <Home />
