@@ -23,16 +23,18 @@ const PetDetails = () => {
 
     async function schedule() {
         let msgType = 'sucess'
+        const t = JSON.parse(token).token
 
         const data = await api.patch(`/pets/schedule/${pet._id}`, {
             headers: {
-                Authorization: `Bearer ${JSON.parse(token).token}`
+                Authorization: `Bearer ${t}`
             }
         })
         .then((response) => {
             return response.data
         })
         .catch((err) => {
+            console.log(err)
             msgType = 'error'
             return err.response.data
         })

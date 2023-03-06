@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Login from './components/pages/auth/Login';
 import Register from './components/pages/auth/Register';
 import Home from './components/pages/Home';
@@ -23,35 +23,17 @@ function App() {
         <Navbar />
         <Message />
         <Container>
-          <Switch>
-            <Route path='/login'>
-              <Login />
-            </Route>
-            <Route path='/register'>
-              <Register />
-            </Route>
-            <Route path='/user/profile'>
-              <Profile/>
-            </Route>
-            <Route path='/pet/mypets'>
-              <MyPets/>
-            </Route>
-            <Route path='/pet/add'>
-              <AddPets/>
-            </Route>
-            <Route path='/pet/edit/:id'>
-              <EditPet/>
-            </Route>
-            <Route path='/pet/myadoptions'>
-              <MyAdoptions/>
-            </Route>
-            <Route path='/pet/:id'>
-              <PetDetails/>
-            </Route>
-            <Route path='/'>
-              <Home />
-            </Route>
-          </Switch>
+         <Routes>
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/user/profile' element={<Profile/>} />
+            <Route path='/pet/mypets' element={<MyPets/>} />
+            <Route path='/pet/add' element={<AddPets/>} />
+            <Route path='/pet/edit/:id' element={<EditPet/>} />
+            <Route path='/pet/myadoptions' element={<MyAdoptions/>} />
+            <Route path='/pet/:id' element={<PetDetails/>} />
+            <Route path='/' element={<Home />} />
+          </Routes>
         </Container>
         <Footer />
       </UserProvider>

@@ -1,4 +1,5 @@
 import api from '../../../utils/api'
+import { useNavigate } from 'react-router-dom'
 
 import styles from './AddPets.module.css'
 
@@ -11,6 +12,7 @@ import PetForm from '../../form/PetForm'
 const AddPets = () => {
   const [token] = useState(localStorage.getItem('token') || '')
   const {setFlashMessage} = useFlashMessage()
+  const navigate = useNavigate()
 
   async function registerPet(pet) {
     let msgType = 'sucess'
@@ -44,6 +46,10 @@ const AddPets = () => {
     })
 
     setFlashMessage(data.message, msgType)
+
+    if(msgType !== 'error') {
+      navigate('/pets/mypets')
+    }
 
   }
 
