@@ -10,7 +10,86 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
-    <h1>WhatsApp Web</h1>
-    <i class="bi bi-file-pdf"></i>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="toolbar-container">
+                <img class="user-photo" src="img/avatar1.png" alt="">
+                <div class="auxicons-toolbar-container">
+                    <i class="bi bi-arrow-clockwise"></i>
+                    <i class="bi bi-chat-left-fill"></i>
+                    <i class="bi bi-three-dots-vertical"></i>
+                </div>
+            </div>
+            <div class="notification-container">
+                <i class="bi bi-bell-slash-fill"></i>
+                <p class="receive-notification">Receba notificações de novas mensagens</p>
+                <p class="activate-notification">Ativar notificação na área de trabalho</p>
+                <i class="bi bi-caret-right-fill"></i>
+            </div>
+            <div class="search-container">
+                <i id="contact-search" class="bi bi-search"></i>
+                <input type="text" name="search" id="search" placeholder="Procurar ou começar uma nova conversa">
+            </div>
+            <div class="contacts-container">
+                <div class="contact-box active-chat">
+                    <img class="user-photo" src="img/avatar2.png" alt="">
+                    <div class="user-info">
+                        <p class="user-name">Sabrina Matos</p>
+                        <p class="user-messagepreview"><i class="bi bi-check-all"></i> Oi, Tudo bem</p>
+                    </div>
+                    <div class="message-info">
+                        <p class="message-time">22:40</p>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <img class="user-photo" src="img/avatar3.png" alt="">
+                    <div class="user-info">
+                        <p class="user-name">João Augusto</p>
+                        <p class="user-messagepreview">Esta disponivel para um freela?</p>
+                    </div>
+                    <div class="message-info">
+                        <p class="message-time">12:30</p>
+                        <p class="message-pending">3</p>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <img class="user-photo" src="img/avatar4.png" alt="">
+                    <div class="user-info">
+                        <p class="user-name">Maria Silva</p>
+                        <p class="user-messagepreview">O projeto ficou perfeito obrigado!</p>
+                    </div>
+                    <div class="message-info">
+                        <p class="message-time">08:20</p>
+                        <p class="message-pending">5</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <main class="chat-container">
+            <nav class="chat-navbar">
+                <div>
+                    <img class="user-name" src="img/avatar2.png" alt="">
+                    <p class="user-name">Sabrina Matos</p>
+                </div>
+                <ul class="chattools-container">
+                    <li><i class="bi bi-search"></i></li>
+                    <li><i class="bi bi-paperclip"></i></li>
+                    <li><i class="bi bi-three-dots-vertical"></i></li>
+                </ul>
+            </nav>
+            <div class="message-container">
+                <div class="bg-image"></div>
+                <div class="chat-message">
+                    <p class="guest-message">Olá, bom dia</p>
+                    <p class="user-message">Oi, Tudo bem</p>
+                </div>
+            </div>
+            <div class="sendmessage-container">
+                <i class="bi bi-emoji-smile"></i>
+                <input id="chatmessage" type="text" name="message" class="userinput" placeholder="Digite uma mensagem">
+                <i class="bi bi-mic-fill"></i>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
